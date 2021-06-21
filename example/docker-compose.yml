@@ -1,0 +1,10 @@
+version: '3'
+
+services:
+  example:
+    container_name: example
+    image: postchain:latest
+    volumes:
+      - ./rell:/usr/src/rell
+    ports:
+      - 7740:7740
