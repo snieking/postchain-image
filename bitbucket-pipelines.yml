@@ -23,6 +23,8 @@ definitions:
           - docker login -u $DOCKER_HUB_USER -p $DOCKER_HUB_TOKEN
           - docker build -t snieking/postchain:$BITBUCKET_TAG .
           - docker push snieking/postchain:$BITBUCKET_TAG
+        services:
+          - docker
 pipelines:
   default:
     - step: *ci
