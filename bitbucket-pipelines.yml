@@ -1,0 +1,21 @@
+image: atlassian/default-image:2
+
+definitions:
+  steps:
+    - step: &ci
+        name: "Continuous Integration"
+        script:
+          - ./download-binaries.sh
+          - docker build -t postchain .
+          - cd example
+          - docker-compose up -d
+          - sleep 10
+          - curl http://localhost:7740/brid/iid_0
+        caches:
+          - docker
+        services:
+          - docker
+
+pipelines:
+  default:
+    - step: *ci

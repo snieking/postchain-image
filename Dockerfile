@@ -1,15 +1,5 @@
 FROM postgres:11-alpine
 
-#USER postgres
-
-# Create postgresql socket folder
-#RUN mkdir /run/postgresql
-#RUN chown postgres:postgres /run/postgresql/
-
-# Create the data directory, and make it less permissive 
-#RUN mkdir /var/lib/postgresql/data
-#RUN chmod 0700 /var/lib/postgresql/data
-
 RUN apk add openjdk8
 
 ENV POSTGRES_DB=postchain
