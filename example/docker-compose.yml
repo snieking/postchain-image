@@ -6,5 +6,6 @@ services:
     image: postchain:latest
     volumes:
       - ./rell:/usr/src/rell
+      - ./data:/var/lib/postgresql/data
     ports:
       - 7740:7740
