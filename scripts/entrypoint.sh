@@ -1,5 +1,12 @@
 #!/usr/bin/env bash
 
 postgres-entrypoint.sh postgres &
-build.sh
-run-node.sh
+
+
+if [ $1 == "test" ]
+then
+  test.sh
+else
+  build.sh
+  run-node.sh
+fi
