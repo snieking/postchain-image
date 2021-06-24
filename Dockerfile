@@ -1,6 +1,6 @@
 FROM postgres:11-alpine
 
-RUN apk add openjdk8
+RUN apk add openjdk8 libxml2 libxml2-utils
 
 ENV POSTGRES_DB=postchain
 ENV POSTGRES_USER=postchain
