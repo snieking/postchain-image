@@ -1,0 +1,20 @@
+version: '3.9'
+
+services:
+  bc0:
+    container_name: bc0
+    image: snieking/postchain:latest
+    volumes:
+      - ./node0/rell:/usr/src/rell
+      - ./node0/data:/var/lib/postgresql/data
+    ports:
+      - 7740:80
+
+  bc1:
+    container_name: bc1
+    image: snieking/postchain:latest
+    volumes:
+      - ./node1/rell:/usr/src/rell
+      - ./node1/data:/var/lib/postgresql/data
+    ports:
+      - 7741:80
