@@ -3,7 +3,7 @@ version: '3.3'
 services:
   bc0:
     container_name: bc0
-    image: snieking/postchain:latest
+    image: snieking/postchain
     volumes:
       - ./node0/rell:/usr/src/rell
       - ./node0/data:/var/lib/postgresql/data
@@ -12,7 +12,7 @@ services:
 
   bc1:
     container_name: bc1
-    image: snieking/postchain:latest
+    image: snieking/postchain
     volumes:
       - ./node1/rell:/usr/src/rell
       - ./node1/data:/var/lib/postgresql/data
