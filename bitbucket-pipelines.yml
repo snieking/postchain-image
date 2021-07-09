@@ -10,6 +10,7 @@ definitions:
           - cd examples/single-node
           - docker-compose up -d
           - sleep 60
+          - docker logs example
           - curl http://localhost:7740/brid/iid_0
         caches:
           - docker
