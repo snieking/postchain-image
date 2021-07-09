@@ -6,7 +6,7 @@ definitions:
         name: "Test single node"
         script:
           - ./download-binaries.sh
-          - docker build -t postchain .
+          - docker build -t snieking/postchain .
           - cd examples/single-node
           - docker-compose up -d
           - sleep 60
@@ -21,7 +21,7 @@ definitions:
         name: "Test multi node"
         script:
           - ./download-binaries.sh
-          - docker build -t postchain .
+          - docker build -t snieking/postchain .
           - cd examples/multi-node
           - docker-compose up -d
           - sleep 60
