@@ -1,6 +1,11 @@
 #!/usr/bin/env bash
 
-export PGPORT=$(cat /usr/src/rell/config/node-config.properties | grep "^database.url=" | sed -e 's,^.*:,:,g' -e 's,.*:\([0-9]*\).*,\1,g' -e 's,[^0-9],,g')
+PORT=$(cat /usr/src/rell/config/node-config.properties | grep "^database.url=" | sed -e 's,^.*:,:,g' -e 's,.*:\([0-9]*\).*,\1,g' -e 's,[^0-9],,g')
+
+if ! [ -z "$PORT" ]
+then
+  export PGPORT=$PORT
+fi
 
 
 postgres-entrypoint.sh postgres &
