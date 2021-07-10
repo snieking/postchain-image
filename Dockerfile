@@ -14,7 +14,7 @@ ENV PATH="/usr/src/postchain-node:/usr/src/postchain-scripts:${PATH}"
 COPY postchain-node /usr/src/postchain-node
 COPY scripts /usr/src/postchain-scripts
 
-ENTRYPOINT ["/bin/bash", "entrypoint.sh"]
+ENTRYPOINT ["/usr/src/postchain-scripts/entrypoint.sh"]
 
 STOPSIGNAL SIGINT
 
