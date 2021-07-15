@@ -20,6 +20,16 @@ docker run -v $PWD/rell:/usr/src/rell snieking/postchain test
 
 By default it will expect and use the `run.xml` located under your rell repository. See the environment variables section if you need to override it.
 
+## Updating the code running
+
+Deploying new config can be done with a simple command.
+
+```
+docker exec -i <container_name> update
+```
+
+It will deploy a fresh configuration which will be active in 5 blocks. This means that you can easily modify & deploy new code as long as you modify the source that was mapped into the volume.
+
 ## Environment variables
 
 | Variable          |  Default  |                              Description |
