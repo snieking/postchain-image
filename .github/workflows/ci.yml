@@ -37,6 +37,8 @@ jobs:
         run: |
           docker-compose up -d
           sleep 60s
+          docker logs example
+          docker ps
           curl http://localhost:7741/brid/iid_0
           docker-compose down
         working-directory: examples/single-node
