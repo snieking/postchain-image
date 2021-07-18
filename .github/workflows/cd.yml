@@ -52,11 +52,8 @@ jobs:
           username: snieking
           password: ${{ secrets.DOCKER_SECRET }}
 
-      - name: Build and push Docker images
+      - name: Tag and push Docker images
         run: |
-          ./download-binaries.sh
-          IMAGE=snieking/postchain
-          docker build -t $IMAGE:latest .
           docker tag $IMAGE:latest $IMAGE:$VERSION
           docker push $IMAGE:$VERSION
           docker push $IMAGE:latest
