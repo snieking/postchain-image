@@ -10,6 +10,12 @@ function get_value_from_properties_file {
 }
 
 PORT=$(cat /usr/src/rell/config/node-config.properties | grep "^database.url=" | sed -e 's,^.*:,:,g' -e 's,.*:\([0-9]*\).*,\1,g' -e 's,[^0-9],,g')
+
+if [ -z "$PORT" ]
+then
+  PORT=5432
+fi
+
 SCHEMA=$(get_value_from_properties_file /usr/src/rell/config/node-config.properties database.schema)
 CHAIN_ID=$(xmllint --xpath 'string(//run/chains/chain/@iid)' /usr/src/rell/$RUN_XML)
 
