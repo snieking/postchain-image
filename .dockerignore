@@ -1,0 +1,6 @@
+# By default ignore everything
+*
+
+# Include needed files
+!postchain-node
+!scripts
