@@ -1,6 +1,6 @@
 # This is a basic workflow to help you get started with Actions
 
-name: Continuous Delivery
+name: Continuous Integration
 
 # Controls when the workflow will run
 on:
@@ -36,7 +36,7 @@ jobs:
       - name: Test single node
         run: |
           docker-compose up -d
-          sleep 30s
+          sleep 60s
           curl http://localhost:7741/brid/iid_0
           docker-compose down
         working-directory: examples/single-node
@@ -44,7 +44,7 @@ jobs:
       - name: Test multi node
         run: |
           docker-compose up -d
-          sleep 30s
+          sleep 60s
           curl http://localhost:7741/brid/iid_0
           docker-compose down
         working-directory: examples/multi-node
