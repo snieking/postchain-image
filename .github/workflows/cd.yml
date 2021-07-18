@@ -22,7 +22,7 @@ jobs:
       - name: Get the version
         id: get_version
         run: |
-          echo ::set-output name=VERSION::${GITHUB_REF/refs\/tags\//}
+          echo "VERSION=${GITHUB_REF/refs\/tags\//}" >> $GITHUB_ENV
           echo "IMAGE=snieking/postchain" >> $GITHUB_ENV
 
       - name: Build image
