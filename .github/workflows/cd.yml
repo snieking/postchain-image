@@ -4,9 +4,8 @@ name: Continuous Delivery
 
 # Controls when the workflow will run
 on:
-  push:
-    tags:
-      - '**'
+  release:
+    types: [created]
 
 # A workflow run is made up of one or more jobs that can run sequentially or in parallel
 jobs:
@@ -57,7 +56,7 @@ jobs:
           docker tag $IMAGE:latest $IMAGE:$VERSION
           docker push $IMAGE:$VERSION
           docker push $IMAGE:latest
-          
+
       - name: Dockerhub Readme
         uses: ms-jpq/sync-dockerhub-readme@v1
         with:
