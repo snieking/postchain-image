@@ -32,13 +32,13 @@ It will deploy a fresh configuration which will be active in 5 blocks. This mean
 
 ## Environment variables
 
-| Variable          |  Default  |                              Description |
-| ----------------- | :-------: | ---------------------------------------: |
-| POSTGRES_DB       | postchain |                 Postgres database to use |
-| POSTGRES_USER     | postchain |                     Postgres user to use |
-| POSTGRES_PASSWORD | postchain |                 Postgres password to use |
-| RELL_SRC          |    src    | Path to src directory from mapped volume |
-| RUN_XML           |  run.xml  |       Path to run.xml from mapped volume |
+| Variable          |    Default     |                              Description |
+| ----------------- | :------------: | ---------------------------------------: |
+| POSTGRES_DB       |   postchain    |                 Postgres database to use |
+| POSTGRES_USER     |   postchain    |                     Postgres user to use |
+| POSTGRES_PASSWORD |   postchain    |                 Postgres password to use |
+| RELL_SRC          |      src       | Path to src directory from mapped volume |
+| RUN_XML           | config/run.xml |       Path to run.xml from mapped volume |
 
 ## Persisting blockchain data
 
