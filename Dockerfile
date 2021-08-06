@@ -7,7 +7,7 @@ ENV POSTGRES_USER=postchain
 ENV POSTGRES_PASSWORD=postchain
 
 ENV RELL_SRC=src
-ENV RUN_XML=run.xml
+ENV RUN_XML=config/run.xml
 
 ENV PATH="/usr/src/postchain-node:/usr/src/postchain-scripts:${PATH}"
 
