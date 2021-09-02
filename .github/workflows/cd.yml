@@ -56,11 +56,3 @@ jobs:
           docker tag $IMAGE:latest $IMAGE:$VERSION
           docker push $IMAGE:$VERSION
           docker push $IMAGE:latest
-
-      - name: Dockerhub Readme
-        uses: ms-jpq/sync-dockerhub-readme@v1
-        with:
-          username: snieking
-          password: ${{ secrets.DOCKER_SECRET }}
-          readme: ./README.md
-          repository: snieking/postchain
