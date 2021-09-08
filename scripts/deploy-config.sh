@@ -9,14 +9,14 @@ function get_value_from_properties_file {
   echo "$PROP_VALUE"
 }
 
-PORT=$(cat /usr/src/rell/config/node-config.properties | grep "^database.url=" | sed -e 's,^.*:,:,g' -e 's,.*:\([0-9]*\).*,\1,g' -e 's,[^0-9],,g')
+PORT=$(cat /usr/src/target/node-config.properties | grep "^database.url=" | sed -e 's,^.*:,:,g' -e 's,.*:\([0-9]*\).*,\1,g' -e 's,[^0-9],,g')
 
 if [ -z "$PORT" ]
 then
   PORT=5432
 fi
 
-SCHEMA=$(get_value_from_properties_file /usr/src/rell/config/node-config.properties database.schema)
+SCHEMA=$(get_value_from_properties_file /usr/src/target/node-config.properties database.schema)
 CHAIN_ID=$(xmllint --xpath 'string(//run/chains/chain/@iid)' /usr/src/rell/$RUN_XML)
 
 BLOCKS_TABLE="c${CHAIN_ID}.blocks"
@@ -24,4 +24,4 @@ BLOCK_HEIGHT=$(psql -qtAX -p $PORT --username $POSTGRES_USER --no-password -c "S
 DEPLOY_HEIGHT=$((BLOCK_HEIGHT + 5))
 
 echo "Current block height is $BLOCK_HEIGHT, new config will be deployed at block height $DEPLOY_HEIGHT"
-postchain.sh add-configuration -bc /usr/src/rell/target/blockchains/${CHAIN_ID}/0.xml -h $DEPLOY_HEIGHT -cid ${CHAIN_ID} -nc /usr/src/rell/target/node-config.properties --allow-unknown-signers
+postchain.sh add-configuration -bc /usr/src/target/blockchains/${CHAIN_ID}/0.xml -h $DEPLOY_HEIGHT -cid ${CHAIN_ID} -nc /usr/src/target/node-config.properties --allow-unknown-signers
