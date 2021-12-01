@@ -7,6 +7,7 @@ then
   export PGPORT=$PORT
 fi
 
+apk fix
 
 postgres-entrypoint.sh postgres &
 
