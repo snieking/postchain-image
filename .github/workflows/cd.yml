@@ -38,5 +38,6 @@ jobs:
         id: publish
         run: |
           ./download-binaries.sh
+          docker run --rm --privileged linuxkit/binfmt:v0.8 && update-binfmts --enable
           docker buildx build --push --platform linux/arm64/v8,linux/amd64 --tag $IMAGE:latest .
           docker buildx build --push --platform linux/arm64/v8,linux/amd64 --tag $IMAGE:$VERSION .
