@@ -37,7 +37,7 @@ jobs:
       - name: Build and push Docker images
         run: |
           ./download-binaries.sh
-          docker buildx build --platform linux/arm/v7,linux/arm64/v8,linux/amd64 --tag $IMAGE:latest .
+          docker buildx build --platform linux/arm/v7,linux/arm64/v8,linux/amd64 --tag $IMAGE .
           docker push $IMAGE:latest
           docker tag $IMAGE:latest $IMAGE:$VERSION
           docker push $IMAGE:$VERSION
