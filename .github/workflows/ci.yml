@@ -37,6 +37,9 @@ jobs:
           ./download-binaries.sh
           docker buildx build --platform linux/arm/v7,linux/arm64/v8,linux/amd64 --tag $IMAGE:latest .
 
+      - name: List images
+        run: docker images
+
       - name: Test single node
         run: |
           docker-compose up -d
