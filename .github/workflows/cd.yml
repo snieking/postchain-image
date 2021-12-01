@@ -24,26 +24,9 @@ jobs:
           echo "VERSION=${GITHUB_REF/refs\/tags\//}" >> $GITHUB_ENV
           echo "IMAGE=snieking/postchain" >> $GITHUB_ENV
 
-      - name: Build image
-        run: |
-          ./download-binaries.sh
-          docker build -t $IMAGE:latest .
-
-      - name: Test single node
-        run: |
-          docker-compose up -d
-          sleep 30s
-          curl http://localhost:7740/brid/iid_0
-          docker-compose down
-        working-directory: examples/single-node
-
-      - name: Test multi node
-        run: |
-          docker-compose up -d
-          sleep 30s
-          curl http://localhost:7741/brid/iid_0
-          docker-compose down
-        working-directory: examples/multi-node
+      - name: Set up Docker Buildx
+        id: buildx
+        uses: docker/setup-buildx-action@v1
 
       - name: Docker Login
         uses: docker/login-action@v1.10.0
@@ -51,8 +34,9 @@ jobs:
           username: snieking
           password: ${{ secrets.DOCKER_SECRET }}
 
-      - name: Tag and push Docker images
+      - name: Build and push Docker images
         run: |
+          ./download-binaries.sh
+          docker buildx build --push --platform linux/arm/v7,linux/arm64/v8,linux/amd64 --tag $IMAGE:latest
           docker tag $IMAGE:latest $IMAGE:$VERSION
           docker push $IMAGE:$VERSION
-          docker push $IMAGE:latest
