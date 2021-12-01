@@ -38,8 +38,5 @@ jobs:
         id: publish
         run: |
           ./download-binaries.sh
-          docker buildx build --platform linux/arm/v7,linux/arm64/v8,linux/amd64 --tag $IMAGE .
-          docker tag $IMAGE $IMAGE:latest
-          docker push $IMAGE:latest
-          docker tag $IMAGE:latest $IMAGE:$VERSION
-          docker push $IMAGE:$VERSION
+          docker buildx build --push --platform linux/arm/v7,linux/arm64/v8,linux/amd64 --tag $IMAGE:latest .
+          docker buildx build --push --platform linux/arm/v7,linux/arm64/v8,linux/amd64 --tag $IMAGE:$VERSION .
