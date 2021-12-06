@@ -31,7 +31,7 @@ jobs:
       - name: Build image
         run: |
           ./download-binaries.sh
-          docker build -t $IMAGE:latest .
+          docker build -t postchain .
 
       - name: Test single node
         run: |
