@@ -1,0 +1,23 @@
+version: '3.3'
+
+services:
+  example:
+    container_name: example
+    image: postchain
+    volumes:
+      - ./rell:/usr/src/rell
+      - ./data:/var/lib/postgresql/data
+    ports:
+      - 7740:80
+    depends_on:
+      - postgres
+
+  postgres:
+    container_name: postgres
+    image: postgres:11
+    ports:
+      - 5432:5432
+    environment:
+      POSTGRES_DB: postchain
+      POSTGRES_USER: postchain
+      POSTGRES_PASSWORD: postchain

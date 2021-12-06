@@ -5,6 +5,7 @@ RUN apk add openjdk11 libxml2 libxml2-utils
 ENV POSTGRES_DB=postchain
 ENV POSTGRES_USER=postchain
 ENV POSTGRES_PASSWORD=postchain
+ENV POSTGRES_URL=""
 
 ENV RELL_SRC=src
 ENV RUN_XML=config/run.xml

@@ -3,7 +3,7 @@ version: '3.3'
 services:
   example:
     container_name: example
-    image: snieking/postchain
+    image: postchain
     volumes:
       - ./rell:/usr/src/rell
       - ./data:/var/lib/postgresql/data
