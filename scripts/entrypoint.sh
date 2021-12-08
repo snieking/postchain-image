@@ -8,7 +8,7 @@ then
   export PGPORT=$PORT
 fi
 
-if [[ "$DB_URL" == *"localhost"* ]] || [[ "$DB_URL" == *"127.0.0.1"* ] || [[ "$DB_URL" == *"0.0.0.0"* ]]
+if [[ "$DB_URL" == *"localhost"* ]] || [[ "$DB_URL" == *"127.0.0.1"* ]] || [[ "$DB_URL" == *"0.0.0.0"* ]]
 then
   echo "Starting local postgres server ..."
   postgres-entrypoint.sh postgres &
