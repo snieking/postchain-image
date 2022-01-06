@@ -2,7 +2,7 @@
 
 set -ex
 
-PACKAGE=rellr-0.10.8-dist.tar.gz
+PACKAGE=rellr-0.10.7-dist.tar.gz
 
 rm -rf postchain-node
 
