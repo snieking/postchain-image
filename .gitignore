@@ -2,6 +2,7 @@
 .vscode
 
 # Postchain
+*.tar.gz
 postchain-node
 data
 target

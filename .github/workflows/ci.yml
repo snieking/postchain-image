@@ -20,13 +20,7 @@ jobs:
 
     # Steps represent a sequence of tasks that will be executed as part of the job
     steps:
-      - uses: actions/checkout@v2
-
-      - name: Get the version
-        id: get_version
-        run: |
-          echo ::set-output name=VERSION::${GITHUB_REF/refs\/tags\//}
-          echo "IMAGE=snieking/postchain" >> $GITHUB_ENV
+      - uses: actions/checkout@v3
 
       - name: Build image
         run: |
@@ -34,15 +28,16 @@ jobs:
           docker build -t postchain .
 
       - name: Test single node
+        working-directory: examples/single-node
         run: |
           docker-compose up -d
           sleep 30s
           docker logs example
           curl http://localhost:7740/brid/iid_0
           docker-compose down
-        working-directory: examples/single-node
 
       - name: Test multi node
+        working-directory: examples/multi-node
         run: |
           docker-compose up -d
           sleep 30s
@@ -50,13 +45,12 @@ jobs:
           docker logs bc1
           curl http://localhost:7741/brid/iid_0
           docker-compose down
-        working-directory: examples/multi-node
 
       - name: Test external db
+        working-directory: examples/external-db
         run: |
           docker-compose up -d
           sleep 30s
           docker logs example
           curl http://localhost:7740/brid/iid_0
           docker-compose down
-        working-directory: examples/external-db
