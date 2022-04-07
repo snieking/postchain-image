@@ -7,7 +7,7 @@ An example project using the image is provided, see the example directory.
 The `rell` directory of your dapp, containing `src`, `run.xml` & `config` directory should be mapped to `usr/src/rell` in the container.
 
 ```
-docker run -v $PWD/rell:/usr/src/rell snieking/postchain
+docker run -v $PWD/rell:/usr/src/rell -p 7740:7740 snieking/postchain
 ```
 
 ## Running tests
