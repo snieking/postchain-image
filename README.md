@@ -28,7 +28,7 @@ Deploying new config can be done with a simple command.
 docker exec -i <container_name> update
 ```
 
-It will deploy a fresh configuration which will be active in 5 blocks. This means that you can easily modify & deploy new code as long as you modify the source that was mapped into the volume.
+It will deploy a fresh configuration which will be active in, per default, 5 blocks. This means that you can easily modify & deploy new code as long as you modify the source that was mapped into the volume.
 
 ## Environment variables
 
@@ -39,6 +39,7 @@ It will deploy a fresh configuration which will be active in 5 blocks. This mean
 | POSTGRES_PASSWORD |   postchain    |                 Postgres password to use |
 | RELL_SRC          |      src       | Path to src directory from mapped volume |
 | RUN_XML           | config/run.xml |       Path to run.xml from mapped volume |
+| DEPLOY_OFFSET     |       5        |       Offset between current block height and block the new configuration will be added. |
 
 ## Using external database
 

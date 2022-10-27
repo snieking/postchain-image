@@ -10,6 +10,7 @@ ENV POSTGRES_URL=""
 
 ENV RELL_SRC=src
 ENV RUN_XML=config/run.xml
+ENV DEPLOY_OFFSET=5
 
 ENV PATH="/usr/src/postchain-node:/usr/src/postchain-scripts:${PATH}"
 
