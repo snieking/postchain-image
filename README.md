@@ -1,9 +1,12 @@
 # Postchain Image
 
-**DEPRECATED!!** Please use the official Docker image from ChromaWay instead. You can find more information on them here:
+## Deprecated
+Please use the official Docker image from ChromaWay instead. You can find more information on them here:
 https://gitlab.com/chromaway/postchain-distribution/-/tree/dev/postchain-images/dapp
+
 https://gitlab.com/chromaway/postchain-distribution/-/tree/dev/postchain-images/test-dapp
 
+## Examples
 An example project using the image is provided, see the example directory.
 
 ## Running a node
